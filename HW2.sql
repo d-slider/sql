@@ -1,11 +1,11 @@
 use Mysecond_DB;
-create table HW2
+create table DZ2
 (
 id serial primary key,
 order_date date not null,
 product_count int
 );
-insert HW2 (order_date, product_count)
+insert DZ2 (order_date, product_count)
 values
 ('2022-01-01', 156),
 ('2022-01-02', 180),
@@ -19,9 +19,9 @@ SELECT id, product_count,
       WHEN product_count BETWEEN 100 AND 300 THEN 'Средний заказ'
       ELSE 'Большой заказ'
    END AS 'Тип заказа'
-FROM HW2;
+FROM DZ2;
 
-create table HW2_orders
+create table DZ2_orders
 (
 id serial primary key,
 eployee_id varchar(10) not null,
@@ -29,7 +29,7 @@ amount decimal(5,2),
 order_status ENUM ('OPEN', 'CLOSED', 'CANCELLED')
 );
 
-INSERT INTO HW2_orders (`eployee_id`, `amount`, `order_status`) 
+INSERT INTO DZ2_orders (`eployee_id`, `amount`, `order_status`) 
 VALUES 
 ('e03', 15.00, 'OPEN'),
 ('e01', '25.50', 'OPEN'),
@@ -43,4 +43,4 @@ SELECT eployee_id,
         WHEN order_status = 'CLOSED' THEN 'Order is closed'
         ELSE 'Order is cancelled'
 	END AS 'full_order_status'
-FROM HW2_orders;
+FROM DZ2_orders;
