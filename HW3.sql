@@ -53,7 +53,7 @@ values
 (3010, 1309.95, '1990-06-10', 2004, 1002),
 (3011, 9891.88, '1990-06-10', 2006, 1001);
 
--- Часть 1
+-- part 1
 -- 1
 select city, cname, snum from CUSTOMERS;
 -- 2
@@ -71,22 +71,22 @@ select min(amt) from ORDERS;
 select * from CUSTOMERS
 where rating > 100 and city <> 'Rome';
 
--- Часть 2
+-- part 2
 -- 1
-select * from STAFF
+select * from staff
 order by salary desc;
-select * from STAFF
+select * from staff
 order by salary;
 -- 2
-SELECT * FROM STAFF
+SELECT * FROM staff
 WHERE salary IN (
-SELECT salary FROM STAFF
+SELECT salary FROM staff
 ORDER BY salary DESC
 LIMIT 5
 )
 ORDER BY salary;
 -- 3
 SELECT post, SUM(salary) as сумма_зарплаты
-FROM STAFF
+FROM staff
 GROUP BY post
 HAVING SUM(salary) > 100000;
